@@ -7,19 +7,27 @@ let currentRound = 0;
 // This function is an array that gets a random item for the console
 function getComputerChoice(){
     const choices = ["rock", "paper", "scissors"];
-    computerChoice = choices[Math.floor(Math.random() * choices.length)];
-    return computerChoice;
+    return choices[Math.floor(Math.random() * choices.length)];
 }
 
-// This function prompts the user for their choice
+// This function prompts the user for their choice with input validation
 function getPlayerChoice(){
-    playerChoice = prompt ("rock, paper or scissors?").toLowerCase();
-    return playerChoice;
+    let playerChoice;
+    while(true){
+        playerChoice = prompt ("rock, paper or scissors?")?.toLowerCase();
+        if (playerChoice && isValidChoice(playerChoice)){
+            return playerChoice;
+        }
+        else{
+            alert("Invalid choice. Please enter rock, paper or scissors.")
+        }
+    }
 }
 
-//These variables store the choices functions
-let playerSelection = getPlayerChoice();
-let computerSelection = getComputerChoice();
+function isValidChoice(choice){
+    return choice === "rock" || choice === "paper" || choice === "scissors";
+}
+
 
 // Function that plays a round and displays the round, the selections and the winner
 function playRound (playerSelection, computerSelection){
@@ -50,6 +58,9 @@ function updateScore(result){
     }
     else if (result === "The computer wins!"){
         computerScore++;
+    }
+    else {
+        return null; // Game keeps going
     }
 }
 
