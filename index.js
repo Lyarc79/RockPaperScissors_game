@@ -10,80 +10,80 @@ function getComputerChoice(){
     return computerChoice;
 }
 
-// This is a function for the user to write his choice
+// This function prompts the user for their choice
 function getPlayerChoice(){
     playerChoice = prompt ("rock, paper or scissors?").toLowerCase();
     return playerChoice;
 }
 
-// These are variables for the playround function
-let tie = "It's a tie!";
-let playerWin = "You win!";
-let computerWin = "The computer wins!";
+//These variables store the choices functions
+let playerSelection = getPlayerChoice();
+let computerSelection = getComputerChoice();
 
 // Function that plays a round and displays the winner
 function playRound (playerSelection, computerSelection){
+    console.log(`Player chooses ${playerSelection}`);
+    console.log(`Computer chooses ${computerSelection}`);
 
     if (playerSelection === computerSelection){
-        return tie;
+        return "It's a tie!";
     }
     else if (
         (playerSelection == "rock" && computerSelection == "paper") ||
         (playerSelection == "paper" && computerSelection == "scissors") ||
         (playerSelection == "scissors" && computerSelection == "rock")
         ) {
-        return computerWin;
+        return "The computer wins!";
         }
-    else if (
-        (playerSelection == "rock" && computerSelection == "scissors") ||
-        (playerSelection == "paper" && computerSelection == "rock") ||
-        (playerSelection == "scissors" && computerSelection == "paper")
-        ); {
-        return playerWin;
+    else {
+        return "You win!";
         }
 }
 
-// Storing the choices functions into variables
-const playerSelection = getPlayerChoice();
-const computerSelection = getComputerChoice();
-// Storing the playRound function to make it shorter
-let result = playRound(playerSelection, computerSelection);
+// Function to keep track of the score and update it every round
+function updateScore(result){
+    if (result === "You win!"){
+        playerScore++;
+    }
+    else if (result === "The computer wins!"){
+        computerScore++;
+    }
+}
+
+// Function to display the current score
+function displayScore(){
+    console.log(`Player Score: ${playerScore}`);
+    console.log(`Computer Score: ${computerScore}`);
+}
 
 // Function that should display at the end when player or computer reaches 5 points.
 function checkWinner(){
     if (playerScore === 5){
-        return "Player win's the game"
+        return "Player wins the game";
     }
     else if (computerScore === 5){
-        return "Computer win's the game"
+        return "Computer wins the game";
     }
 }
-
-// Function to keep track of the score and update it every round
-function updateScore(){
-    if (result == playerWin){
-        playerScore++;
-    }
-    else if (result == computerWin){
-        computerScore++;
-    }
-    else if (result == tie){
-    }
-    console.log(playerScore);
-    console.log(computerScore);
-}
-
-// Game function still working wrong.
-// Loop should be alright but the console display isn't the desired.
+// Game function 
 function game(){
-
-    for (let i = 0; i <= 5; i++){
+    for (let i = 0; i < 5; i++){
+        const playerSelection = getPlayerChoice();
+        const computerSelection = getComputerChoice();
+        const result = playRound(playerSelection, computerSelection);
+        updateScore(result);
         console.log(result);
-        updateScore();
+        displayScore();
+
+        const winner = checkWinner();
+        if(winner){
+            console.log(winner);
+            break; 
+        }
     }
 }
-
 
 game();
-checkWinner();
+
+
 
