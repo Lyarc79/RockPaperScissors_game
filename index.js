@@ -24,6 +24,7 @@ function getPlayerChoice(){
     }
 }
 
+// Function to check if the player choice is valid
 function isValidChoice(choice){
     return choice === "rock" || choice === "paper" || choice === "scissors";
 }
