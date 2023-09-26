@@ -2,6 +2,7 @@
 // This are 2 global variables to track score
 let computerScore = 0;
 let playerScore = 0;
+let currentRound = 0;
 
 // This function is an array that gets a random item for the console
 function getComputerChoice(){
@@ -20,8 +21,10 @@ function getPlayerChoice(){
 let playerSelection = getPlayerChoice();
 let computerSelection = getComputerChoice();
 
-// Function that plays a round and displays the winner
+// Function that plays a round and displays the round, the selections and the winner
 function playRound (playerSelection, computerSelection){
+    currentRound++;
+    console.log(`Round ${currentRound}`);
     console.log(`Player chooses ${playerSelection}`);
     console.log(`Computer chooses ${computerSelection}`);
 
