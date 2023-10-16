@@ -1,10 +1,67 @@
-#resultDisplay {
-    background-color: #f0f0f0;
+*{
+    background-color:  #2b2b2b;
+}
+
+#selectionPick{
+    padding: 20px;
+    text-align: center;
+    font-size: 30px;
+    color: white;
+    font-family: 'Noto sans mono';
+}
+
+#weapons{
+    display: flex;
+    gap: 2rem;
+    color: white;
+    justify-content: center;
+    text-align: center;
     padding: 10px;
-    margin-top: 10px;
+    margin-bottom: 15px;
+}
+
+#weapons button{
+    font-family: 'Noto sans mono';
+    color: white;
+    font-size: 18px;
+    width: 120px;
+    height: 50px;
+    background-color: #6b9cf5;
+    border-style: none;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+#weapons button:hover{
+    background-color: crimson;
+}
+
+#Scores{
+    display: flex;
+    justify-content: center;
+    color: white;
+    padding: 10px;
+    gap: 2rem;
+    font-size: 18px;
+    font-family: 'Noto sans mono';
+}
+
+#resultDisplay {
+    width: 1000px;
+    height: 220px;
+    background-color: #818181;
+    padding: 10px;
+    margin: 0 auto;
     border: 1px solid #ccc;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 16px;
+    text-align: center;
+}
+
+#resultDisplay p{
+    color: white;
+    background-color: #818181;
+    font-family: 'Noto sans mono';
 }
 
 #playerScore
@@ -12,4 +69,18 @@
     margin-top: 10px;
     font-weight: bold;
     font-size: 18px;
+}
+
+#resetBtn{
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 10px;
+}
+#reset{
+    padding: 5px;
+    color: white;
+    width: 70px;
+    height: 30px;
+    background-color: crimson;
+    font-size: 14px;
 }

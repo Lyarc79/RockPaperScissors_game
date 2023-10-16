@@ -28,6 +28,7 @@ function playRound (playerSelection, computerSelection){
     const roundResult = document.createElement("p");
     roundResult.textContent = `Round ${currentRound}`;
     resultDisplay.appendChild(roundResult);
+    roundResult.style = "font-weight: bold; font-size: 20px";
 
     const playerChoiceText = document.createElement("p");
     playerChoiceText.textContent = `Player chooses ${playerSelection}`;
@@ -156,6 +157,7 @@ scissorsBtn.addEventListener ('click', () => {
 })
 
 resetBtn.addEventListener('click', resetGame);
+
 // Game funct call
 game();
 
